@@ -1559,3 +1559,31 @@ for await (await using resource of resources) {
           function: (identifier)
           arguments: (arguments
             (identifier)))))))
+
+=====================
+Export type star
+=====================
+
+export type * from 'foo';
+
+---
+
+(program
+  (export_statement
+    source: (string
+      (string_fragment))))
+
+=====================
+Export type star as namespace
+=====================
+
+export type * as Types from 'foo';
+
+---
+
+(program
+  (export_statement
+    (namespace_export
+      (identifier))
+    source: (string
+      (string_fragment))))
