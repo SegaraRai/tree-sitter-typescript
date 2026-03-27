@@ -9321,6 +9321,32 @@
       "type": "STRING",
       "value": "override"
     },
+    "variance": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "in"
+            },
+            {
+              "type": "STRING",
+              "value": "out"
+            }
+          ]
+        },
+        {
+          "type": "STRING",
+          "value": "in"
+        },
+        {
+          "type": "STRING",
+          "value": "out"
+        }
+      ]
+    },
     "required_parameter": {
       "type": "SEQ",
       "members": [
@@ -11193,6 +11219,18 @@
           ]
         },
         {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "variance"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
           "type": "FIELD",
           "name": "name",
           "content": {
@@ -11923,6 +11961,10 @@
     [
       "jsx_keyword_identifier",
       "predefined_type"
+    ],
+    [
+      "jsx_keyword_identifier",
+      "variance"
     ],
     [
       "jsx_keyword_identifier",

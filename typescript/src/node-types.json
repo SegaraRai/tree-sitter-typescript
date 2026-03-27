@@ -5107,6 +5107,16 @@
           }
         ]
       }
+    },
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "variance",
+          "named": true
+        }
+      ]
     }
   },
   {
@@ -5391,6 +5401,11 @@
         ]
       }
     }
+  },
+  {
+    "type": "variance",
+    "named": true,
+    "fields": {}
   },
   {
     "type": "while_statement",
@@ -5899,11 +5914,11 @@
   },
   {
     "type": "number",
-    "named": false
+    "named": true
   },
   {
     "type": "number",
-    "named": true
+    "named": false
   },
   {
     "type": "object",
@@ -5911,6 +5926,10 @@
   },
   {
     "type": "of",
+    "named": false
+  },
+  {
+    "type": "out",
     "named": false
   },
   {
