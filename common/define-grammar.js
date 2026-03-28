@@ -116,6 +116,15 @@ module.exports = function defineGrammar(dialect) {
         [$.primary_type, $.type_parameter],
       ] : [
         [$.jsx_opening_element, $.type_parameter],
+        [$.jsx_keyword_identifier, $.type_parameter],
+        [$.jsx_keyword_identifier, $.constraint],
+        [$.jsx_keyword_identifier, $.type_query],
+        [$.jsx_keyword_identifier, $.primary_type],
+        [$.jsx_keyword_identifier, $.predefined_type],
+        [$.jsx_keyword_identifier, $.true],
+        [$.jsx_keyword_identifier, $.false],
+        [$.jsx_keyword_identifier, $.null],
+        [$.jsx_keyword_identifier, $.this],
         [$.jsx_namespace_name, $.primary_type],
       ],
     ),
@@ -245,8 +254,8 @@ module.exports = function defineGrammar(dialect) {
               )),
               seq(
                 field('name', choice(
-                  $.identifier,
-                  alias($.nested_identifier, $.member_expression),
+                  $._jsx_identifier,
+                  alias($.jsx_member_expression, $.member_expression),
                 )),
                 field('type_arguments', optional($.type_arguments)),
               ),

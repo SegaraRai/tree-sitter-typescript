@@ -1,0 +1,107 @@
+==========================================================
+JSX in object property values
+:language(tsx)
+==========================================================
+
+const __expr = ({
+  id: "5ZqswJ",
+  components: {
+    0: <a class="link link-primary" href={`/routing/${alternateSlug}`} for="routing" const="const" />
+  }
+});
+
+---
+
+(program
+  (lexical_declaration
+    (variable_declarator
+      (identifier)
+      (parenthesized_expression
+        (object
+          (pair
+            (property_identifier)
+            (string
+              (string_fragment)))
+          (pair
+            (property_identifier)
+            (object
+              (pair
+                (number)
+                (jsx_self_closing_element
+                  (identifier)
+                  (jsx_attribute
+                    (property_identifier)
+                    (string
+                      (string_fragment)))
+                  (jsx_attribute
+                    (property_identifier)
+                    (jsx_expression
+                      (template_string
+                        (string_fragment)
+                        (template_substitution
+                          (identifier)))))
+                  (jsx_attribute
+                    (property_identifier)
+                    (string
+                      (string_fragment)))
+                  (jsx_attribute
+                    (property_identifier)
+                    (string
+                      (string_fragment))))))))))))
+
+==========================================================
+JSX identifiers versus TSX type syntax
+:language(tsx)
+==========================================================
+
+<Element<T>>hi</Element>;
+<A>(amount, interestRate, duration): number => 2;
+const tags = [<class />, <svg:true />, <Foo.class />, <a await="z" />];
+
+---
+
+(program
+  (expression_statement
+    (jsx_element
+      open_tag: (jsx_opening_element
+        name: (identifier)
+        type_arguments: (type_arguments
+          (type_identifier)))
+      (jsx_text)
+      close_tag: (jsx_closing_element
+        name: (identifier))))
+  (expression_statement
+    (arrow_function
+      type_parameters: (type_parameters
+        (type_parameter
+          name: (type_identifier)))
+      parameters: (formal_parameters
+        (required_parameter
+          pattern: (identifier))
+        (required_parameter
+          pattern: (identifier))
+        (required_parameter
+          pattern: (identifier)))
+      return_type: (type_annotation
+        (predefined_type))
+      body: (number)))
+  (lexical_declaration
+    (variable_declarator
+      name: (identifier)
+      value: (array
+        (jsx_self_closing_element
+          name: (identifier))
+        (jsx_self_closing_element
+          name: (jsx_namespace_name
+            (identifier)
+            (identifier)))
+        (jsx_self_closing_element
+          name: (member_expression
+            object: (identifier)
+            property: (property_identifier)))
+        (jsx_self_closing_element
+          name: (identifier)
+          attribute: (jsx_attribute
+            (property_identifier)
+            (string
+              (string_fragment))))))))
