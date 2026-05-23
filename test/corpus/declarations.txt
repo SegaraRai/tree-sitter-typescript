@@ -1587,3 +1587,38 @@ export type * as Types from 'foo';
       (identifier))
     source: (string
       (string_fragment))))
+
+=======================================
+Class accessor modifier combinations
+=======================================
+
+class Foo {
+  static accessor one: string;
+  override accessor two: number;
+  abstract accessor three: boolean;
+  readonly accessor four: Foo;
+}
+
+---
+
+(program
+  (class_declaration
+    name: (type_identifier)
+    body: (class_body
+      (public_field_definition
+        name: (property_identifier)
+        type: (type_annotation
+          (predefined_type)))
+      (public_field_definition
+        (override_modifier)
+        name: (property_identifier)
+        type: (type_annotation
+          (predefined_type)))
+      (public_field_definition
+        name: (property_identifier)
+        type: (type_annotation
+          (predefined_type)))
+      (public_field_definition
+        name: (property_identifier)
+        type: (type_annotation
+          (type_identifier))))))

@@ -2293,3 +2293,47 @@ type Covariant<out T extends string> = T;
         (constraint
           (predefined_type))))
     (type_identifier)))
+
+=========================
+Import expressions in type positions
+=========================
+
+type Stream<T> = import('node:fs').ReadStream<T>;
+type Keys = keyof import('pkg').Thing;
+type Module = import('pkg');
+
+---
+
+(program
+  (type_alias_declaration
+    name: (type_identifier)
+    type_parameters: (type_parameters
+      (type_parameter
+        name: (type_identifier)))
+    value: (generic_type
+      name: (member_expression
+        object: (call_expression
+          function: (import)
+          arguments: (arguments
+            (string
+              (string_fragment))))
+        property: (property_identifier))
+      type_arguments: (type_arguments
+        (type_identifier))))
+  (type_alias_declaration
+    name: (type_identifier)
+    value: (index_type_query
+      (member_expression
+        object: (call_expression
+          function: (import)
+          arguments: (arguments
+            (string
+              (string_fragment))))
+        property: (property_identifier))))
+  (type_alias_declaration
+    name: (type_identifier)
+    value: (call_expression
+      function: (import)
+      arguments: (arguments
+        (string
+          (string_fragment))))))
