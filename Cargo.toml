@@ -16,7 +16,7 @@ autoexamples = false
 
 build = "bindings/rust/build.rs"
 include = [
-  "LICENSE",
+  "/LICENSE",
   "common",
   "bindings/rust",
   "typescript/grammar.js",
@@ -31,10 +31,10 @@ include = [
 path = "bindings/rust/lib.rs"
 
 [dependencies]
-tree-sitter-language = "0.1.7"
+tree-sitter-language = "0.1.8"
 
 [build-dependencies]
 cc = "1.2.58"
 
 [dev-dependencies]
-tree-sitter = "0.26.8"
+tree-sitter = "0.27.0"
